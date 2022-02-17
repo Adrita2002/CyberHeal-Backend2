@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberHeal-Let's Rebel Against The Cyber Bullies!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/complaintform.css">
+</head>
+
+<body>
+  <div class="container my-5">
+    <form id="form" action="/complaintform" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="emailid" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="emailid" id="emailid" aria-describedby="emailHelp">
+
+      </div>
+      <div class="mb-3">
+        <label for="contact" class="form-label">Contact Number</label>
+        <input type="text" class="form-control" name="contact" id="contact" aria-describedby="emailHelp">
+
+      </div>
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <div><input class="form-check-input" type="radio" name="gender" value="male" id="male">
+          <label class="form-check-label" for="male">
+            Male
+          </label>
+          <input class="form-check-input" type="radio" value="female" name="gender" id="female">
+          <label class="form-check-label" for="female">
+            Female
+          </label>
+          <input class="form-check-input" type="radio" value="other" name="gender" id="other">
+          <label class="form-check-label" for="other">
+            Other
+          </label>
+        </div>
+      </div>
+      <div class="mb-3">
+      <label for="type" class="form-label" >Are you the victim or a well wisher?</label>
+         <div><input class="form-check-input" type="radio" name="type" value="victim" id="victim">
+  <label class="form-check-label" for="victim">
+    Victim
+  </label>
+  <input class="form-check-input" type="radio" value="well-wisher" name="type" id="well-wisher">
+  <label class="form-check-label" for="well-wisher">
+    Well-Wisher
+  </label>
+  </div>
+  </div>
+  <div class="mb-3">
+   <label for="platform" class="form-label" >Which platform(s) were you bullied in?</label>
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" name="platform" value="Social Media" id="social-media">
+  <label class="form-check-label" for="social-media">
+    Social Media
+  </label>
+  </div>
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" name="platform" value="sms" id="sms">
+  <label class="form-check-label" for="sms">
+    SMS
+  </label>
+  </div>
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" name="platform" value="mail" id="mail">
+  <label class="form-check-label" for="mail">
+    Email
+  </label>
+  </div>
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" name="platform" value="others" id="others">
+  <label class="form-check-label" for="others">
+    Others
+  </label>
+</div>
+</div>
+<div class="mb-3">
+  <label for="screenshot" class="form-label" >Upload screenshot of incident(Not Compulsory)</label>
+  <div class="form-check">
+  <input class="custom-file-input" type="file" name="screenshot" value="file" id="file">
+</div>
+<div class="btn">
+      <button type="submit" name="submit" id="submitBtn" class="btn btn-success my-2 formsubmit">Submit</button>
+    </div>
+    </form>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+form{
+    display: flex;
+    top:90vh;
+    position:absolute;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+#message-container{
+    position:relative;
+    border:1px solid black;
+    height:80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+ 
