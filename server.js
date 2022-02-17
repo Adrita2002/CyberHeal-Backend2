@@ -125,15 +125,26 @@ app.get('/payment', (req, res) => {
       res.status(500).json({ error: e.message })
     }
   })
+
+  const chatUsers = {}
  
 //Chat
 io.on('connection',(socket)=>{
-  console.log("new User");
-   socket.emit("chat-message","Welcome");
+  // console.log("new User");
+  socket.on('new-user',username=>{
+    chatUsers[socket.id]=username;
+    socket.broadcast.emit('user-connected',username);
+  })
+  
    socket.on('send-chat-message',message=>{
-     console.log(message);
-     socket.broadcast.emit('chat-message',message)
+    //  console.log(message);
+     socket.broadcast.emit('chat-message',{message:message,username:chatUsers[socket.id]})
    })
+   socket.on('disconnect',()=>{
+    socket.broadcast.emit('user-disconnected',chatUsers[socket.id]);
+    delete chatUsers[socket.id];
+    
+  })
 })
 
 const port = process.env.PORT || 1000;
