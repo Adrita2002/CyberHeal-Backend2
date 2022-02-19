@@ -23,3 +23,10 @@ body{
 #message-input{
     font-family: 'Jura';
 }
+#clock{
+    font-family: 'Jura';
+    font-weight: 900;
+}
+h1{
+    font-family: 'Jura';
+}
