@@ -24,6 +24,7 @@ app.use('/uploads',express.static('uploads'));
 
 require("./db/cyberheal");
 const Complaint = require("./models/complaint");
+const CounsellorReg=require("./models/counsellor");
 const upload = require("./middleware/upload");
 
 app.get('/',(req,res)=>{
@@ -36,6 +37,10 @@ app.get('/complaintform', (req, res) => {
 
 app.get('/chat',(req,res)=>{
   res.render('chat');
+})
+
+app.get('/counsellorRegister',(req,res)=>{
+  res.render('counsellorRegister');
 })
 
 //Complaint file
@@ -145,6 +150,29 @@ io.on('connection',(socket)=>{
     delete chatUsers[socket.id];
     
   })
+})
+
+//Counsellor
+app.post('/counsellorRegister',async(req,res)=>{
+  try {
+    let register = new CounsellorReg({
+        name: req.body.name,
+        username: req.body.counsellorUsername,
+        age: req.body.age,
+        city: req.body.city,
+        state:req.body.state,
+        password:req.body.password
+    })  
+    if(req.file){
+      register.resume = req.file.path;
+    }
+    await register.save();
+    res.status(201).render("counsellorRegister");
+
+  }  catch (error) {
+    res.status(400).send(error);
+}
+
 })
 
 const port = process.env.PORT || 1000;
